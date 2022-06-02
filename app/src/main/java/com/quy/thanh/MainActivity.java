@@ -14,6 +14,7 @@ public class MainActivity extends AppCompatActivity {
 
     ActivityMainBinding binding;
     long speed = 300;
+    int count = 5;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,6 +32,7 @@ public class MainActivity extends AppCompatActivity {
     boolean isEndLoop = false;
 
     void loopAnim1() {
+        count--;
         binding.play.animate()
                 .alpha(0)
                 .setDuration(speed)
@@ -53,6 +55,10 @@ public class MainActivity extends AppCompatActivity {
 
     }
     void loopAnim2() {
+        if(count == 0) {
+            return;
+        }
+        count--;
         isEndLoop = false;
         binding.layout4.setTranslationX(0);
         binding.layout2.animate()
@@ -71,6 +77,10 @@ public class MainActivity extends AppCompatActivity {
     }
 
     void loopAnim3() {
+        if(count == 0) {
+            return;
+        }
+        count--;
         binding.layout3.animate()
                 .translationX(-binding.layout4.getWidth())
                 .setDuration(speed)
@@ -84,6 +94,10 @@ public class MainActivity extends AppCompatActivity {
     }
 
     void loopAnim4() {
+        if(count == 0) {
+            return;
+        }
+        count--;
         isEndLoop = true;
         binding.layout2.setTranslationX(binding.layout4.getWidth());
         binding.layout2.animate()
@@ -98,12 +112,6 @@ public class MainActivity extends AppCompatActivity {
                     @Override
                     public void onAnimationEnd(Animator animation) {
                         super.onAnimationEnd(animation);
-                        //binding.layout1.setTranslationX(0);
-//                        binding.layout2.setTranslationX(0);
-//                        binding.layout3.setTranslationX(0);
-//                        binding.layout2.animate()
-//                                .translationX(0)
-//                                .setDuration(speed);
                         binding.layout3.setVisibility(View.VISIBLE);
                         loopAnim2();
                     }
