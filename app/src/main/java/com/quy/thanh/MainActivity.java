@@ -10,17 +10,24 @@ import android.view.animation.Animation;
 
 import com.quy.thanh.databinding.ActivityMainBinding;
 
+import java.util.ArrayList;
+
 public class MainActivity extends AppCompatActivity {
 
     ActivityMainBinding binding;
-    long speed = 300;
-    int count = 5;
-
+    long speed = 1000;
+    int count = 25;
+    String[] strings = {"1", "2", "3", "4", "5", "8", "9", "10", "11"};
+    int size = strings.length;
+    int index = 2;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
+        binding.text2.setText(strings[0]);
+        binding.text3.setText(strings[1]);
+        binding.text4.setText(strings[2]);
         binding.play.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -54,8 +61,9 @@ public class MainActivity extends AppCompatActivity {
                 });
 
     }
+
     void loopAnim2() {
-        if(count == 0) {
+        if (count == 0) {
             return;
         }
         count--;
@@ -69,6 +77,11 @@ public class MainActivity extends AppCompatActivity {
                     public void onAnimationEnd(Animator animation) {
                         super.onAnimationEnd(animation);
                         if (!isEndLoop) {
+                            if(index == size - 1){
+                                index = -1;
+                            }
+                            index++;
+                            binding.text2.setText(strings[index]);
                             loopAnim3();
                         }
 
@@ -77,7 +90,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     void loopAnim3() {
-        if(count == 0) {
+        if (count == 0) {
             return;
         }
         count--;
@@ -88,13 +101,18 @@ public class MainActivity extends AppCompatActivity {
                     @Override
                     public void onAnimationEnd(Animator animation) {
                         super.onAnimationEnd(animation);
+                        if(index == size - 1){
+                            index = -1;
+                        }
+                        index++;
+                        binding.text3.setText(strings[index]);
                         loopAnim4();
                     }
                 });
     }
 
     void loopAnim4() {
-        if(count == 0) {
+        if (count == 0) {
             return;
         }
         count--;
@@ -113,6 +131,11 @@ public class MainActivity extends AppCompatActivity {
                     public void onAnimationEnd(Animator animation) {
                         super.onAnimationEnd(animation);
                         binding.layout3.setVisibility(View.VISIBLE);
+                        if(index == size - 1){
+                            index = -1;
+                        }
+                        index++;
+                        binding.text4.setText(strings[index]);
                         loopAnim2();
                     }
                 });

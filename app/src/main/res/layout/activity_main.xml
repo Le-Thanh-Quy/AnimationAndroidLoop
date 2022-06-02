@@ -7,32 +7,47 @@
     android:background="#D619BE"
     tools:context=".MainActivity">
 
-    <LinearLayout
+    <RelativeLayout
         android:id="@+id/layout4"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="#39C113"
         android:orientation="vertical">
 
-    </LinearLayout>
+        <TextView
+            android:id="@+id/text4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true" />
+    </RelativeLayout>
 
-    <LinearLayout
+    <RelativeLayout
         android:id="@+id/layout3"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="#1352C1"
         android:orientation="vertical">
 
-    </LinearLayout>
+        <TextView
+            android:id="@+id/text3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true" />
+    </RelativeLayout>
 
-    <LinearLayout
+    <RelativeLayout
         android:id="@+id/layout2"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="#C85A5A"
         android:orientation="vertical">
 
-    </LinearLayout>
+        <TextView
+            android:id="@+id/text2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true" />
+    </RelativeLayout>
 
     <RelativeLayout
         android:id="@+id/layout1"
@@ -40,11 +55,12 @@
         android:layout_height="match_parent"
         android:background="@color/black"
         android:orientation="vertical">
+
         <Button
             android:id="@+id/play"
             android:layout_width="wrap_content"
-            android:layout_centerInParent="true"
-            android:layout_height="wrap_content"/>
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true" />
     </RelativeLayout>
 
 </RelativeLayout>
